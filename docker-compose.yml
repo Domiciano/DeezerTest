@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  deezer:
+      restart: always
+      image: domi0620/deezerapp
+      networks:
+        - proxy
+      deploy:
+        replicas: 1
+        labels: 
+          com.df.distribute: "false"
+          com.df.notify: "true"
+          com.df.port: 3000
+          com.df.servicePath: "/deezer"
+networks: 
+  proxy: 
+    external: true
